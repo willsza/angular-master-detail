@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CompaniesRoutingModule } from './companies-routing.module';
+import { SharedModule } from './../../shared/shared.module';
 
+import { CompaniesRoutingModule } from './companies-routing.module';
 import { CompanyFormComponent } from './company-form/company-form.component';
 import { CompanyListComponent } from './company-list/company-list.component';
 
@@ -10,7 +11,8 @@ import { CompanyListComponent } from './company-list/company-list.component';
   declarations: [CompanyFormComponent, CompanyListComponent],
   imports: [
     CommonModule,
-    CompaniesRoutingModule
+    CompaniesRoutingModule,
+    SharedModule
   ]
 })
 export class CompaniesModule { }
