@@ -7,9 +7,11 @@ import { RouterModule } from '@angular/router';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDatabase } from '../in-memory-database';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [HeaderComponent, FooterComponent],
   imports: [
     CommonModule,
     BrowserModule,
@@ -21,7 +23,11 @@ import { InMemoryDatabase } from '../in-memory-database';
     // SHARED MODULES
     BrowserModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+
+    // SHARED COMPONENTS
+    HeaderComponent,
+    FooterComponent
   ]
 })
-export class CoreModule { }
+export class CoreModule {}
