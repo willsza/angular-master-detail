@@ -9,7 +9,6 @@ import { switchMap } from 'rxjs/operators';
 
 import toastr from 'toastr';
 
-
 export abstract class BaseResourceFormComponent<T extends BaseResourceModel> implements OnInit, AfterContentChecked {
 
   currentAction: string;
@@ -54,7 +53,7 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
   }
 
 
-  // PRIVATE METHODS
+  // PROTECTED METHODS
 
   protected setCurrentAction() {
     if (this.route.snapshot.url[0].path === 'new') {
@@ -81,7 +80,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
     }
   }
 
-
   protected setPageTitle() {
     if (this.currentAction == 'new') {
       this.pageTitle = this.creationPageTitle();
@@ -98,7 +96,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
     return 'Edição';
   }
 
-
   protected createResource() {
     const resource: T = this.jsonDataToResourceFn(this.resourceForm.value);
 
@@ -109,7 +106,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
         error => this.actionsForError(error)
       )
   }
-
 
   protected updateResource() {
     const resource: T = this.jsonDataToResourceFn(this.resourceForm.value);
@@ -122,7 +118,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
       )
   }
 
-
   protected actionsForSuccess(resource: T) {
     toastr.success('Solicitação processada com sucesso!');
 
@@ -133,7 +128,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
       () => this.router.navigate([baseComponentPath, resource.id, 'edit'])
     );
   }
-
 
   protected actionsForError(error) {
     toastr.error('Ocorreu um erro ao processar a sua solicitação!');
@@ -146,7 +140,6 @@ export abstract class BaseResourceFormComponent<T extends BaseResourceModel> imp
       this.serverErrorMessages = ['Falha na comunicação com o servidor. Por favor, tente mais tarde.'];
     }
   }
-
 
   protected abstract buildResourceForm(): void;
 }
