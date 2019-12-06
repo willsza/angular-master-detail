@@ -10,6 +10,6 @@ import { Company } from './company.model';
 export class CompanyService extends BaseResourceService<Company> {
 
   constructor(protected injector: Injector) {
-    super('api/categories', injector, Company.fromJson);
+    super('api/companies', injector, Company.fromJson);
   }
 }
