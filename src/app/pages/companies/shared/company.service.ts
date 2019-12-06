@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
+
+import { BaseResourceService } from 'src/app/shared/services/base-resource.service';
+
+import { Company } from './company.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyService {
+export class CompanyService extends BaseResourceService<Company> {
 
-  constructor() { }
+  constructor(protected injector: Injector) {
+    super('api/categories', injector, Company.fromJson);
+  }
 }
