@@ -6,4 +6,8 @@ export class Company extends BaseResourceModel {
   ) {
     super();
   }
+
+  static fromJson(jsonData: any): Company {
+    return Object.assign(new Company(), jsonData);
+  }
 }
