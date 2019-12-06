@@ -6,11 +6,12 @@ import { CompanyFormComponent } from './company-form/company-form.component';
 
 const routes: Routes = [
   { path: '', component: CompanyListComponent },
-  { path: 'new', component: CompanyFormComponent }
+  { path: 'new', component: CompanyFormComponent },
+  { path: ':id/edit', component: CompanyFormComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CompaniesRoutingModule { }
+export class CompaniesRoutingModule {}
