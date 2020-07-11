@@ -143,6 +143,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "csc-bmg-web"
+    }
+  },
+  "defaultProject": "csc-bmg-web",
+  "cli": {
+    "analytics": false
+  }
 }
